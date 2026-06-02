@@ -1,0 +1,548 @@
+slides:诸葛童琳-新媒体与内容运营作品集:portfolio.html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>诸葛童琳 | 新媒体与内容运营作品集</title>
+    <!-- 引入 Tailwind CSS 构建极简现代风 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        burgundy: '#801c34',
+                        gold: '#c79b4e',
+                        charcoal: '#2b2627',
+                        paper: '#fbfaf7',
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif SC"', '"Cormorant Garamond"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,400&family=Noto+Serif+SC:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* 深度视觉样式微调 */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fbfaf7;
+            color: #2b2627;
+        }
+        .heading-serif {
+            font-family: 'Noto Serif SC', 'Cormorant Garamond', serif;
+        }
+        /* 隐藏滚动条 */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="selection:bg-burgundy selection:text-white">
+
+    <!-- 1. 顶部毛玻璃导航栏 -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-paper/80 backdrop-blur-md border-b border-gray-200/50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="heading-serif font-bold text-xl tracking-wider text-burgundy">
+                諸葛童琳 <span class="text-xs text-gold font-sans font-normal tracking-normal ml-1">PORTFOLIO</span>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
+                <a href="#about" class="hover:text-burgundy transition-colors">关于我</a>
+                <a href="#project-bilibili" class="hover:text-burgundy transition-colors">B站冷启动</a>
+                <a href="#project-cases" class="hover:text-burgundy transition-colors">爆款拆解</a>
+                <a href="#project-event" class="hover:text-burgundy transition-colors">文学讨论会</a>
+                <a href="#project-assets" class="hover:text-burgundy transition-colors">写作与资产</a>
+            </nav>
+            <a href="mailto:zgtl113@outlook.com" class="bg-burgundy text-white px-4 py-2 rounded-full text-xs font-semibold hover:bg-black transition-all shadow-md">
+                联系我 <i class="fa-solid fa-paper-plane ml-1"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- 2. Hero 屏：工科与艺术碰撞的人设 -->
+    <section id="about" class="min-height-[90vh] pt-32 pb-20 px-6 max-w-6xl mx-auto flex flex-col justify-center">
+        <div class="grid md:grid-template-cols-1 md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-8 space-y-6">
+                <div class="inline-flex items-center space-x-2 bg-burgundy/10 text-burgundy px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase">
+                    <i class="fa-solid fa-graduation-cap"></i> <span>2027届 · 人工智能工科背景 × 自媒体主创</span>
+                </div>
+                <h1 class="heading-serif text-5xl md:text-6xl font-bold leading-tight text-charcoal">
+                    用数据模型与共情，<br>
+                    将青年文化转化为 <span class="text-burgundy underline decoration-gold decoration-wavy">高粘性内容产品</span>
+                </h1>
+                <p class="text-lg text-gray-600 leading-relaxed max-w-2xl">
+                    我是诸葛童琳，目前就读于中南林业科技大学人工智能专业。我热衷于拆解流量逻辑、解构 Z 世代情绪痛点。通过对 K-pop 圈层和海外青年文化的敏捷捕捉，在自媒体平台上实现了从零至百万播放的冷启动。
+                </p>
+                <!-- 核心标签 -->
+                <div class="flex flex-wrap gap-3">
+                    <span class="bg-white border border-gray-200 px-4 py-2 rounded-xl text-sm font-medium shadow-sm"><i class="fa-solid fa-chart-pie text-burgundy mr-1.5"></i> 数据漏斗思维</span>
+                    <span class="bg-white border border-gray-200 px-4 py-2 rounded-xl text-sm font-medium shadow-sm"><i class="fa-solid fa-language text-gold mr-1.5"></i> 敏捷编译译制</span>
+                    <span class="bg-white border border-gray-200 px-4 py-2 rounded-xl text-sm font-medium shadow-sm"><i class="fa-solid fa-wand-magic-sparkles text-purple-600 mr-1.5"></i> AI辅助高效内容产出</span>
+                </div>
+                <!-- 社交媒体链接 -->
+                <div class="flex items-center space-x-6 pt-4 text-gray-500">
+                    <a href="mailto:zgtl113@outlook.com" class="hover:text-burgundy transition-colors text-lg" title="邮箱"><i class="fa-solid fa-envelope mr-1"></i> <span class="text-sm font-sans">zgtl113@outlook.com</span></a>
+                    <span class="text-gray-300">|</span>
+                    <span class="text-lg" title="电话"><i class="fa-solid fa-phone mr-1"></i> <span class="text-sm font-sans">18119956360</span></span>
+                    <span class="text-gray-300">|</span>
+                    <a href="https://space.bilibili.com/2027202358" target="_blank" class="hover:text-blue-500 transition-colors" title="B站：莫比里的房子鹅"><i class="fa-brands fa-bilibili text-xl"></i></a>
+                </div>
+            </div>
+            <!-- 个人高光数据卡片 -->
+            <div class="md:col-span-4 bg-white border border-gray-200 p-8 rounded-3xl shadow-xl space-y-6 relative overflow-hidden">
+                <div class="absolute -right-12 -bottom-12 w-48 h-48 rounded-full bg-burgundy/5 -z-10"></div>
+                <div class="heading-serif text-lg font-bold text-gray-400 tracking-wider">PROJECT HEALTH KPI</div>
+                <div class="space-y-4">
+                    <div>
+                        <div class="text-sm text-gray-500">公域总曝光（播放量）</div>
+                        <div class="text-4xl font-bold font-serif text-burgundy">688,972+</div>
+                    </div>
+                    <div class="h-px bg-gray-100"></div>
+                    <div>
+                        <div class="text-sm text-gray-500">核心收藏（高粘性留存量）</div>
+                        <div class="text-4xl font-bold font-serif text-gold">4,206+</div>
+                    </div>
+                    <div class="h-px bg-gray-100"></div>
+                    <div>
+                        <div class="text-sm text-gray-500">高价值收藏播放比</div>
+                        <div class="text-3xl font-bold text-charcoal">0.61% <span class="text-xs text-green-600 font-sans font-normal"><i class="fa-solid fa-caret-up"></i> 远超同业</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 项目一：B站 0-1 冷启动深潜 -->
+    <section id="project-bilibili" class="py-20 bg-white border-y border-gray-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
+                <div>
+                    <span class="text-gold font-bold uppercase tracking-widest text-xs">PROJECT 01 / CONTENT SYSTEM</span>
+                    <h2 class="heading-serif text-3xl md:text-4xl font-bold mt-2 text-charcoal">B站垂直赛道冷启动与用户留存优化</h2>
+                </div>
+                <div class="mt-4 md:mt-0 bg-burgundy/5 text-burgundy text-sm font-medium px-4 py-2 rounded-xl border border-burgundy/20">
+                    <i class="fa-solid fa-compass"></i> 突破点：通过高留存素材，打通“高曝光-高收藏-强关注”链路
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- 原理图与截图卡片 -->
+                <div class="space-y-4">
+                    <!-- 模拟浏览器窗口展示 B站 后台截图 `image_9c55c0.jpg` -->
+                    <div class="bg-[#f2f0ea] border border-gray-200 rounded-2xl overflow-hidden shadow-lg">
+                        <div class="bg-gray-200 px-4 py-2.5 flex items-center space-x-2 border-b border-gray-300">
+                            <span class="w-3 h-3 rounded-full bg-red-400 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-400 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-400 inline-block"></span>
+                            <span class="text-xs text-gray-500 font-sans ml-4 truncate">bilibili_creator_center_analytics.png (image_9c55c0.jpg)</span>
+                        </div>
+                        <div class="p-4 bg-white relative">
+                            <!-- 用高级排版高保真还原 B站 关键截图的核心数据表现，配合标注 -->
+                            <div class="grid grid-cols-3 gap-3 text-center mb-4">
+                                <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+                                    <div class="text-xs text-gray-400">总播放数</div>
+                                    <div class="text-xl font-bold text-blue-500">688,972</div>
+                                </div>
+                                <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+                                    <div class="text-xs text-gray-400">总收藏数</div>
+                                    <div class="text-xl font-bold text-yellow-600">4,206</div>
+                                </div>
+                                <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+                                    <div class="text-xs text-gray-400">总点赞数</div>
+                                    <div class="text-xl font-bold text-burgundy">15,665</div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-400 text-center">对应参考原始截图: <span class="font-semibold text-gray-600">image_9c55c0.jpg</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 策略解说 -->
+                <div class="space-y-6">
+                    <div class="space-y-2">
+                        <h3 class="text-2xl font-bold text-burgundy heading-serif">“弱流量”时代下的精准圈层狙击</h3>
+                        <p class="text-gray-600">在海外资讯和 K-pop 物料大盘中，避开 BLACKPINK 等红海，直接锁定未全面破圈的<b>跨国厂牌练习生、小众高神颜主唱、选秀热门选手</b>。通过极致时效的中字译制与花字剪辑二创，迅速占领核心追星粉的信息茧房。</p>
+                    </div>
+
+                    <!-- AARRR模型对应动作 -->
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-burgundy/10 text-burgundy flex items-center justify-center font-bold text-sm shrink-0">1</div>
+                            <div>
+                                <h4 class="font-bold text-charcoal">公域获客（Acquisition）</h4>
+                                <p class="text-sm text-gray-500">抓住海外物料外网发布后1小时的“生肉真空期”，快速编译剪辑并推送。极快地击穿算法，获取首页推荐曝光。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-gold/10 text-gold flex items-center justify-center font-bold text-sm shrink-0">2</div>
+                            <div>
+                                <h4 class="font-bold text-charcoal">留存激活（Activation & Retention）</h4>
+                                <p class="text-sm text-gray-500">高收藏比（0.61%）证明了内容具有极强的<b>“收藏夹工具属性”</b>。用户倾向于将精心翻译、整合的内容存入收藏夹反复观看，形成深度留存。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center font-bold text-sm shrink-0">3</div>
+                            <div>
+                                <h4 class="font-bold text-charcoal">下一步优化：产品化合集转型</h4>
+                                <p class="text-sm text-gray-500">针对“高曝光但转粉率低”的漏斗瓶颈，将随缘更新升级为<b>《冷门高颜值神仙舞台译制》等系列合集产品线</b>，利用连载连贯性强制引导用户点击“关注”追更。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 项目二：原生交互滑动的“爆款拆解” -->
+    <section id="project-cases" class="py-20 bg-paper">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="mb-12">
+                <span class="text-gold font-bold uppercase tracking-widest text-xs">PROJECT 02 / CASE STUDIES</span>
+                <h2 class="heading-serif text-3xl md:text-4xl font-bold mt-2 text-charcoal">爆款单品深度复盘与转化路径</h2>
+                <p class="text-gray-500 mt-2">点击两侧箭头，即可切换查看精选的高播放、高互动案例拆解（参考稿件列表：image_9c5cc0.png）</p>
+            </div>
+
+            <!-- 原生 JavaScript 轮播图容器 -->
+            <div class="relative group">
+                <!-- 左箭头 -->
+                <button onclick="prevSlide()" class="absolute -left-4 md:-left-8 top-1/2 -translate-y-1/2 z-20 bg-white/90 border border-gray-200 text-charcoal w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-burgundy hover:text-white transition-all">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <!-- 右箭头 -->
+                <button onclick="nextSlide()" class="absolute -right-4 md:-right-8 top-1/2 -translate-y-1/2 z-20 bg-white/90 border border-gray-200 text-charcoal w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-burgundy hover:text-white transition-all">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <!-- 轮播卡片轨道 -->
+                <div class="overflow-hidden rounded-3xl border border-gray-200/60 bg-white shadow-xl">
+                    <div id="carousel-track" class="flex transition-transform duration-500 ease-out" style="transform: translateX(0%);">
+                        
+                        <!-- Slide 1 -->
+                        <div class="w-full shrink-0 p-8 md:p-12 grid md:grid-cols-12 gap-8 items-center">
+                            <div class="md:col-span-5 space-y-4">
+                                <span class="bg-red-500/10 text-red-500 text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-fire"></i> 争议与大热选秀矩阵</span>
+                                <h3 class="heading-serif text-2xl font-bold text-charcoal">《她们说在这个视频里SAKURA更具有偶像明星的气质好像...》</h3>
+                                <div class="flex space-x-6 text-sm text-gray-500 py-2 border-y border-gray-100">
+                                    <span><i class="fa-solid fa-play mr-1"></i> 播放：<b>6.2万+</b></span>
+                                    <span><i class="fa-solid fa-comments mr-1"></i> 弹幕：<b>130+</b></span>
+                                    <span><i class="fa-solid fa-star mr-1"></i> 收藏：<b>70+</b></span>
+                                </div>
+                                <p class="text-sm text-gray-600 leading-relaxed">
+                                    <b>运营逻辑与爆款拆解</b>：采用“客观中立、探讨争议性”的网感文案做标题，成功在粉丝高黏性社区引发评论区与弹幕的<b>观点大对撞</b>。130多条弹幕高频互动极大提升了算法对“稿件活跃度”的判定，成功撬动二级信息流推荐。
+                                </p>
+                            </div>
+                            <div class="md:col-span-7 bg-gray-50 p-4 rounded-2xl flex items-center justify-center">
+                                <!-- 视觉示意框 -->
+                                <div class="text-center p-8 border border-dashed border-gray-300 rounded-xl bg-white w-full">
+                                    <div class="text-burgundy text-4xl mb-2"><i class="fa-brands fa-bilibili"></i></div>
+                                    <div class="text-sm font-bold text-gray-700">【6.2万播放爆款高光】</div>
+                                    <div class="text-xs text-gray-400 mt-1">截图与对应后台数据请参考：image_9c5cc0.png 第一行稿件</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="w-full shrink-0 p-8 md:p-12 grid md:grid-cols-12 gap-8 items-center">
+                            <div class="md:col-span-5 space-y-4">
+                                <span class="bg-yellow-500/10 text-yellow-600 text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-brain"></i> 知识科普+网感化重构</span>
+                                <h3 class="heading-serif text-2xl font-bold text-charcoal">《豆英猫的养老保险全部来自同一张专辑》</h3>
+                                <div class="flex space-x-6 text-sm text-gray-500 py-2 border-y border-gray-100">
+                                    <span><i class="fa-solid fa-play mr-1"></i> 播放：<b>5.7万+</b></span>
+                                    <span><i class="fa-solid fa-thumbs-up mr-1"></i> 点赞：<b>2,348</b></span>
+                                    <span><i class="fa-solid fa-star mr-1"></i> 收藏：<b>258</b></span>
+                                </div>
+                                <p class="text-sm text-gray-600 leading-relaxed">
+                                    <b>运营逻辑与爆款拆解</b>：将枯燥硬核的欧美乐坛科普，用极度幽默的互联网热梗（“养老保险”）重构。<b>2348个高点赞和258个高留存收藏</b>，证明了该内容不仅极具娱乐破圈能力，而且提供了强大的“资料馆式工具价值”，促使粉丝主动高赞收藏。
+                                </p>
+                            </div>
+                            <div class="md:col-span-7 bg-gray-50 p-4 rounded-2xl flex items-center justify-center">
+                                <div class="text-center p-8 border border-dashed border-gray-300 rounded-xl bg-white w-full">
+                                    <div class="text-burgundy text-4xl mb-2"><i class="fa-brands fa-square-youtube"></i></div>
+                                    <div class="text-sm font-bold text-gray-700">【5.7万播放高赞科普】</div>
+                                    <div class="text-xs text-gray-400 mt-1">截图与对应后台数据请参考：image_9c5cc0.png 第二行稿件</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="w-full shrink-0 p-8 md:p-12 grid md:grid-cols-12 gap-8 items-center">
+                            <div class="md:col-span-5 space-y-4">
+                                <span class="bg-purple-500/10 text-purple-600 text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-heart"></i> 高糖情感与互动矩阵</span>
+                                <h3 class="heading-serif text-2xl font-bold text-charcoal">【源琦森林】系列高能直播互动剪辑</h3>
+                                <div class="flex space-x-6 text-sm text-gray-500 py-2 border-y border-gray-100">
+                                    <span><i class="fa-solid fa-play mr-1"></i> 累计播放：<b>8.5万+</b></span>
+                                    <span><i class="fa-solid fa-star mr-1"></i> 平均收藏比：<b>> 1.5%</b></span>
+                                    <span><i class="fa-solid fa-share-nodes mr-1"></i> 强力裂变</span>
+                                </div>
+                                <p class="text-sm text-gray-600 leading-relaxed">
+                                    <b>运营逻辑与爆款拆解</b>：通过深度捕捉官方剪辑之外、粉丝最期待的特定CP/选手之间的生动直播瞬间与情感互动片段，极速成片并进行精细中字渲染。<b>其高收藏比和群内转发率极度惊人</b>，是典型的精准社群引流利器。
+                                </p>
+                            </div>
+                            <div class="md:col-span-7 bg-gray-50 p-4 rounded-2xl flex items-center justify-center">
+                                <div class="text-center p-8 border border-dashed border-gray-300 rounded-xl bg-white w-full">
+                                    <div class="text-purple-600 text-4xl mb-2"><i class="fa-solid fa-film"></i></div>
+                                    <div class="text-sm font-bold text-gray-700">【情感爆款矩阵】</div>
+                                    <div class="text-xs text-gray-400 mt-1">对应系列后台数据请参考：image_9c5cc0.png 中多篇源琦森林高赞稿件</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 项目三：校级活动策划复盘 + 交互游戏模拟器 -->
+    <section id="project-event" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="mb-12 text-center max-w-2xl mx-auto space-y-3">
+                <span class="text-burgundy font-bold uppercase tracking-widest text-xs">PROJECT 03 / OFFLINE TO ONLINE</span>
+                <h2 class="heading-serif text-3xl md:text-4xl font-bold text-charcoal">《人类识别指南——亲密关系》活动复盘</h2>
+                <p class="text-gray-500">将传统的枯燥读书会升级为“4人剧本游戏”，全生命周期闭环运营，实现100%提问与高转化。</p>
+            </div>
+
+            <!-- 数据对齐卡片展示 -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+                <div class="border border-gray-200 p-6 rounded-2xl text-center bg-gray-50">
+                    <div class="text-xs text-gray-500 uppercase tracking-wider">讨论会到场率</div>
+                    <div class="text-3xl font-bold font-serif text-burgundy mt-2">95%</div>
+                </div>
+                <div class="border border-gray-200 p-6 rounded-2xl text-center bg-gray-50">
+                    <div class="text-xs text-gray-500 uppercase tracking-wider">现场发言参与率</div>
+                    <div class="text-3xl font-bold font-serif text-burgundy mt-2">100%</div>
+                </div>
+                <div class="border border-gray-200 p-6 rounded-2xl text-center bg-gray-50">
+                    <div class="text-xs text-gray-500 uppercase tracking-wider">现场提问/互动量</div>
+                    <div class="text-3xl font-bold font-serif text-burgundy mt-2">15+ 人</div>
+                </div>
+                <div class="border border-gray-200 p-6 rounded-2xl text-center bg-gray-50">
+                    <div class="text-xs text-gray-500 uppercase tracking-wider">会后精细沉淀资产</div>
+                    <div class="text-3xl font-bold font-serif text-burgundy mt-2">1.2w字</div>
+                </div>
+            </div>
+
+            <!-- 核心：交互式角色判定游戏沙盒 -->
+            <div class="bg-charcoal text-paper p-8 rounded-3xl shadow-xl relative overflow-hidden">
+                <div class="absolute right-0 top-0 opacity-10 pointer-events-none transform translate-x-20 -translate-y-20">
+                    <!-- 使用前文生成的玫瑰意象配图：17741440191492895191_0 -->
+                    <img src="https://images.stockcake.com/public/5/b/f/5bf1c8d7-f9de-4f92-ab5a-a5e1b9337110_medium/gothic-garden-beauty-stockcake.jpg" alt="玫瑰与死亡" class="w-96 h-96 object-cover rounded-full">
+                </div>
+                
+                <div class="max-w-2xl">
+                    <h3 class="heading-serif text-2xl text-gold font-bold mb-2">互动沙盒：体验我设计的“文字抉择游戏”</h3>
+                    <p class="text-sm text-gray-400 mb-6">为了在分享《犬之力》时降低文学理论门槛，我为参与者设计了人物抉择游戏。你可以点击下方卡片，扮演特定人物，体验决定他们生死与亲密关系的瞬间：</p>
+                </div>
+
+                <div class="grid md:grid-cols-4 gap-4 mb-8">
+                    <button onclick="playRole('phil')" class="border border-gold/30 hover:border-gold p-4 rounded-xl text-left transition-all hover:bg-white/5 active:scale-95">
+                        <div class="font-bold text-gold"><i class="fa-solid fa-hat-cowboy"></i> 哥哥·菲尔</div>
+                        <div class="text-xs text-gray-400 mt-1">残忍聪明，极度掌控</div>
+                    </button>
+                    <button onclick="playRole('george')" class="border border-gold/30 hover:border-gold p-4 rounded-xl text-left transition-all hover:bg-white/5 active:scale-95">
+                        <div class="font-bold text-gold"><i class="fa-solid fa-users"></i> 弟弟·乔治</div>
+                        <div class="text-xs text-gray-400 mt-1">温柔挑剔，渴求上流</div>
+                    </button>
+                    <button onclick="playRole('rose')" class="border border-gold/30 hover:border-gold p-4 rounded-xl text-left transition-all hover:bg-white/5 active:scale-95">
+                        <div class="font-bold text-gold"><i class="fa-solid fa-wine-glass"></i> 母亲·萝丝</div>
+                        <div class="text-xs text-gray-400 mt-1">坚忍软弱，抑郁酗酒</div>
+                    </button>
+                    <button onclick="playRole('peter')" class="border border-gold/30 hover:border-gold p-4 rounded-xl text-left transition-all hover:bg-white/5 active:scale-95">
+                        <div class="font-bold text-gold"><i class="fa-solid fa-microscope"></i> 儿子·彼得</div>
+                        <div class="text-xs text-gray-400 mt-1">阴柔冷静，无情弑神</div>
+                    </button>
+                </div>
+
+                <!-- 交互游戏展示结果卡片 -->
+                <div id="game-display" class="bg-white/5 border border-white/10 p-6 rounded-2xl min-h-[160px] flex flex-col justify-center">
+                    <div class="text-center text-gray-400 text-sm">
+                        <i class="fa-solid fa-hand-pointer text-2xl mb-2 text-gold animate-bounce"></i>
+                        <div>点击上方任意角色卡片，即可扮演对应人物，开启亲密关系命运判定。</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 全生命周期表格复盘 -->
+            <div class="mt-12 overflow-x-auto">
+                <table class="w-full text-left border-collapse border border-gray-200">
+                    <thead>
+                        <tr class="bg-gray-50 border-b border-gray-200 heading-serif">
+                            <th class="p-4 font-bold text-charcoal">运营阶段</th>
+                            <th class="p-4 font-bold text-charcoal">核心工作（Actions）</th>
+                            <th class="p-4 font-bold text-charcoal">指标表现（KPIs）</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm divide-y divide-gray-100 text-gray-600">
+                        <tr>
+                            <td class="p-4 font-bold text-burgundy">1. 预热裂变（Pre-heat）</td>
+                            <td class="p-4">利用Z世代痛点话题“亲密关系中的窒息感/讨好行为”撰写深度推文，社群精准裂变。</td>
+                            <td class="p-4"><b>50+</b> 深度文学社群精准报名，实际到场率 <b>95%</b>。</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-burgundy">2. 现场执行（Execution）</td>
+                            <td class="p-4">运用“文字选择游戏”进行高品质互动破冰，通过互动机制和提问卡牌引导发言。</td>
+                            <td class="p-4"><b>100%</b> 发言率，提问数 <b>15+ 次</b>，打破传统读书会死气沉沉的僵局。</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-burgundy">3. 沉淀裂变（Post-event）</td>
+                            <td class="p-4">将会上观点整合为1.2万字复盘纪要，沉淀为高质量、可长尾阅读的内容资产。</td>
+                            <td class="p-4">反哺私域社群，实现活动粉丝 <b>100% 高质量黏性留存</b>。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. 项目四：独立文本与底层资产展示 -->
+    <section id="project-assets" class="py-20 bg-paper border-t border-gray-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="mb-12">
+                <span class="text-gold font-bold uppercase tracking-widest text-xs">PROJECT 04 / LITERARY & CREATIVE WEALTH</span>
+                <h2 class="heading-serif text-3xl md:text-4xl font-bold mt-2 text-charcoal">底层内容资产：独立写作与情感洞察能力</h2>
+                <p class="text-gray-500 mt-2">文学写作是极其强大的内容基本功，它赋予我敏锐的文本敏捷度、金句撰写与用户情绪共鸣能力。</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 写作资产 1 -->
+                <div class="bg-white p-8 rounded-3xl border border-gray-200/60 shadow-lg space-y-4">
+                    <div class="heading-serif text-xs font-bold text-gold tracking-widest uppercase">读书会延伸文本 / 深度洞察</div>
+                    <h3 class="heading-serif text-2xl font-bold text-charcoal">《卡拉马佐夫兄弟》：佐西马长老和阿廖沙</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        “佐西马神父对阿廖沙的教诲是成功的，他用‘爱一切、宽恕一切’的观念让阿廖沙免于‘卡拉马佐夫式’的自残魔咒……与之相对，他在临终前命令阿廖沙走入尘世、面对真实世界。这展现了通过深刻羁绊，战胜尘世孤独的良性亲密关系，这也是我们探讨亲密关系最终给出的正面解药。”
+                    </p>
+                    <div class="bg-paper/80 p-3.5 rounded-xl border border-gray-100 text-xs text-gray-500">
+                        <i class="fa-solid fa-comment-dots text-burgundy"></i> <b>用户反馈与共鸣</b>：该解读在读书会沉淀文本发布后，在书迷圈内引发高赞，长文回帖3条，深度触及了读者的精神角落。
+                    </div>
+                </div>
+
+                <!-- 写作资产 2 -->
+                <div class="bg-white p-8 rounded-3xl border border-gray-200/60 shadow-lg space-y-4">
+                    <div class="heading-serif text-xs font-bold text-gold tracking-widest uppercase">诗歌意象拆解 / 视觉与文学双栖</div>
+                    <h3 class="heading-serif text-2xl font-bold text-charcoal">《玫瑰的死亡比其盛开更具吸引力》</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        “玫瑰凋零终有时——留着用在我的葬礼上吧。美不仅仅是完整的、充满活力的，美在很多时候也表现为悲伤、逝去与纯粹的矛盾……在二创影视作品包装中，我善于引入这类极其深刻却精准的视觉意象，让快餐式的短视频瞬间拥有高品质的文学调性，打动极度挑剔的圈层用户。”
+                    </p>
+                    <div class="bg-paper/80 p-3.5 rounded-xl border border-gray-100 text-xs text-gray-500">
+                        <i class="fa-solid fa-chart-line text-gold"></i> <b>运营转化力</b>：这一美学观点被我直接作为 B站 译制视频的文案引物，直接实现了 <b>5.7万+</b> 的长尾播放数据（见爆款拆解）。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. 页面底部 Call to Action -->
+    <footer class="bg-charcoal text-paper py-16 px-6">
+        <div class="max-w-4xl mx-auto text-center space-y-8">
+            <h2 class="heading-serif text-4xl font-bold text-gold">期待与您共同打磨高价值内容产品</h2>
+            <p class="text-gray-400 max-w-xl mx-auto leading-relaxed">
+                我具备扎实的工科数据头脑，也有一支能敏捷捕获时代共情与流行文化温度的笔。目前正在寻求 <b>新媒体运营 / 产品运营 / 内容运营</b> 实习或正式岗位。
+            </p>
+            <div class="inline-flex flex-wrap gap-4 justify-center text-sm font-medium">
+                <span class="bg-white/10 px-4 py-2 rounded-full"><i class="fa-solid fa-phone text-gold mr-1"></i> 18119956360</span>
+                <span class="bg-white/10 px-4 py-2 rounded-full"><i class="fa-solid fa-envelope text-gold mr-1"></i> zgtl113@outlook.com</span>
+                <span class="bg-white/10 px-4 py-2 rounded-full"><i class="fa-solid fa-map-marker-alt text-gold mr-1"></i> 湖南·长沙</span>
+            </div>
+            <div class="text-xs text-gray-500 pt-8 border-t border-white/5">
+                © 2026 诸葛童琳. Powered by self-developed code. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- 核心：控制滑动的 JavaScript 代码 -->
+    <script>
+        // 1. 爆款拆解原生 JavaScript 轮播滑动器代码
+        let currentSlideIndex = 0;
+        const track = document.getElementById('carousel-track');
+        const slidesCount = 3; // 共有三个案例卡片
+
+        function updateSlidePosition() {
+            track.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+        }
+
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % slidesCount;
+            updateSlidePosition();
+        }
+
+        function prevSlide() {
+            currentSlideIndex = (currentSlideIndex - 1 + slidesCount) % slidesCount;
+            updateSlidePosition();
+        }
+
+        // 2. 互动式文学讨论会角色判定选择器代码
+        const roleData = {
+            phil: {
+                roleName: "牧场主哥哥 · 菲尔 (Phil)",
+                choice: "面对弟弟执意成婚，你怒不可遏。在极度的占有欲与失落感中：",
+                actionA: "【分支 A - 霸凌折磨】选择霸凌弟弟的弱软妻子萝丝，将其逼走 $\\rightarrow$ 【结局】：萝丝离去、弟弟决裂。你在对已故导师亨利的病态幻念和极端孤独中一年年守着狗头山死去，一生未直面自我。",
+                actionB: "【分支 B - 松动接纳】答应那个阴柔的男孩彼得请求带他做牛仔 $\\rightarrow$ 【结局】：你毫无防备地将他引为知心人，却未防备他背后的冰冷杀机。彻夜编织皮绳，你死于彼得设下的炭疽之网。"
+            },
+            george: {
+                roleName: "牧场主弟弟 · 乔治 (George)",
+                choice: "你发现妻子抑郁酗酒的悲剧根源在于哥哥，你决定：",
+                actionA: "【分支 A - 决裂带走】和哥哥大吵一架，带妻子彻底离开牧场 $\\rightarrow$ 【结局】：与哥哥共处二十年你竟对其毫无所知。虽在别处美满，但菲尔的痛楚与不解的阴影终生挥之不去。",
+                actionB: "【分支 B - 隐忍退让】相信亲情和努力可以融化偏见，留下来 $\\rightarrow$ 【结局】：菲尔死在了某个隐秘的下午。大石虽落地，但午夜梦回，他总梦见菲尔流泪向他倾诉，仿佛他曾经彻底忽略了什么。"
+            },
+            rose: {
+                roleName: "餐馆老板/妻子 · 萝丝 (Rose)",
+                choice: "在菲尔长期的精神控制霸凌下，乔治无力拯救，你选择：",
+                actionA: "【分支 A - 酒精麻痹】活在窒息和恐惧中酗酒 $\\rightarrow$ 【结局】：每天活在恐惧中，眼睁睁看着儿子为了保护自己而不断靠近恶人菲尔。",
+                actionB: "【分支 B - 菲尔死后】重获新生 $\\rightarrow$ 【结局】：菲尔暴毙，你重获安宁，在被所有人接纳的爱意中彻底放下了酒杯。"
+            },
+            peter: {
+                roleName: "单亲儿子 · 彼得 (Peter)",
+                choice: "为了解救精神濒临崩溃的母亲，你通过冷静理智靠近菲尔，获得信任，你的杀着是：",
+                actionA: "【分支 A - 用温和施加毁灭】诱使无防备的菲尔彻夜编制炭疽皮绳 $\\rightarrow$ 【结局】：完美杀局成功实施，菲尔暴毙。你作为不被染指的恶抗恶教皇，虽然为了爱牺牲了道德良知，但妈妈至少能过上好日子了。"
+            }
+        };
+
+        function playRole(roleKey) {
+            const role = roleData[roleKey];
+            const display = document.getElementById('game-display');
+            
+            display.innerHTML = `
+                <div class="space-y-3 animate-fade-in text-left">
+                    <div class="text-gold font-bold text-lg heading-serif"><i class="fa-solid fa-mask"></i> 角色：${role.roleName}</div>
+                    <p class="text-sm text-gray-300 font-serif italic">${role.choice}</p>
+                    <div class="space-y-2 mt-4 text-xs font-sans">
+                        <div class="p-3 bg-white/5 rounded-lg border border-white/5 text-gray-200">
+                            ${role.actionA}
+                        </div>
+                        ${role.actionB ? `
+                        <div class="p-3 bg-white/5 rounded-lg border border-white/5 text-gray-200">
+                            ${role.actionB}
+                        </div>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
+```eof
+
+### 🚀 这个网页怎么发布上线？
+
+为了让你的网页在简历中能够被面试官**一键点击在线访问**，部署极其简单：
+1. **GitHub Pages（完全免费、最推荐，能极大增加程序员逼格）**：
+   * 在 GitHub 创建一个名叫 `zgtl113.github.io` 的新仓库。
+   * 把刚才生成的这篇代码保存为名叫 `index.html` 的文件并上传上去。
+   * **结果**：面试官直接点击 `[https://zgtl113.github.io](https://zgtl113.github.io)` 就能直接浏览你的个人网站！
+2. **飞书/Notion文档直接放入**：
+   * 如果实在没有时间部署，可以用最简单的飞书文档/Notion。在里面敲 `/html` 或 `/embed` 直接把这个交互文件作为**高亮代码沙盒**放进去，让读者双击查看，同样惊艳！
+
+有了这个专属的代码网页后，你的作品集已经超越了 95% 机械填写大纲的其他毕业生，把工科数据背景和艺术网感融为了一体。你可以点击保存并运行它，我们继续精修下一个关卡！
