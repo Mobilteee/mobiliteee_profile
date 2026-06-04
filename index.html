@@ -3,599 +3,491 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobiliteee | Portfolio</title>
-    <!-- 引入潮流黑体与无衬线字体库 -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Mobiliteee | Content Strategist & Story Designer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Noto+Sans+SC:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Swiper.js For PPT -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Alpine.js For Interactivity -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
     <style>
-        :root {
-            --bg-color: #f9f9f6;
-            --text-dark: #121212;
-            --text-muted: #666666;
-            --accent-pink: #ff5e97;
-            --accent-purple: #8b5cf6;
-            --card-bg: #ffffff;
-            --border-style: 2px solid #121212;
-            --neo-shadow: 4px 4px 0px #121212;
-            --neo-shadow-hover: 7px 7px 0px #121212;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: 'Plus Jakarta Sans', 'Noto Sans SC', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-dark);
+            background-color: #FAFAFC;
+            color: #111115;
             overflow-x: hidden;
-            line-height: 1.6;
         }
-
-        /* 潮流滚动条 */
-        ::-webkit-scrollbar {
-            width: 8px;
+        html { scroll-behavior: smooth; }
+        .z-card {
+            background: #FFFFFF;
+            border: 2px solid #111115;
+            box-shadow: 4px 4px 0px #111115;
+            transition: all 0.2s ease;
         }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-color);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--text-dark);
-            border-radius: 4px;
-        }
-
-        /* 顶部导航 */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(249, 249, 246, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: var(--border-style);
-            z-index: 1000;
-            padding: 1.2rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            text-transform: uppercase;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
-            margin-left: 2rem;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: var(--accent-pink);
-        }
-
-        /* 主视觉区 Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 8rem 10% 4rem 10%;
-            background: radial-gradient(circle at 80% 20%, rgba(255, 94, 151, 0.08) 0%, transparent 40%);
-        }
-
-        .hero-tag {
-            font-size: 1rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            background: var(--text-dark);
-            color: #fff;
-            padding: 0.3rem 0.8rem;
-            margin-bottom: 1.5rem;
-            transform: rotate(-1deg);
-            display: inline-block;
-        }
-
-        .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -2px;
-            margin-bottom: 2rem;
-        }
-
-        .hero h1 span {
-            color: var(--accent-pink);
-            position: relative;
-        }
-
-        .hero h1 span::after {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            background: rgba(255, 94, 151, 0.2);
-            z-index: -1;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 600px;
-            color: var(--text-muted);
-            margin-bottom: 3rem;
-        }
-
-        /* 统一内容大板块布局 */
-        .container {
-            padding: 6rem 10%;
-            border-top: var(--border-style);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 3.5rem;
-            letter-spacing: -1px;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .section-title::before {
-            content: '●';
-            color: var(--accent-pink);
-            font-size: 1.5rem;
-        }
-
-        /* 网格与卡片样式 (Neo-Brutalism) */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .neo-card {
-            background: var(--card-bg);
-            border: var(--border-style);
-            padding: 2.5rem;
-            box-shadow: var(--neo-shadow);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-        }
-
-        .neo-card:hover {
-            transform: translate(-3px, -3px);
-            box-shadow: var(--neo-shadow-hover);
-        }
-
-        /* 板块1 & 板块2：数据看板样式 */
-        .data-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 2rem;
-        }
-
-        .badge {
-            font-size: 0.8rem;
-            font-weight: 700;
-            padding: 0.2rem 0.6rem;
-            border: var(--border-style);
-            background: #fff;
-        }
-
-        .badge.bilibili { background-color: #00aeec; color: #fff; }
-        .badge.tiktok { background-color: #000000; color: #fff; }
-
-        .stat-huge {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1;
-            margin: 1rem 0;
-            letter-spacing: -1px;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .data-list-mini {
-            margin-top: 1.5rem;
-            list-style: none;
-        }
-
-        .data-list-mini li {
-            padding: 0.5rem 0;
-            border-bottom: 1px dashed #ccc;
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.95rem;
-        }
-
-        /* 板块3：人类识别指南复盘交互 */
-        .flow-container {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .flow-step {
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            gap: 1.5rem;
-            align-items: start;
-        }
-
-        .step-number {
-            font-size: 1.5rem;
-            font-weight: 800;
-            width: 50px;
-            height: 50px;
-            border: var(--border-style);
-            background: var(--accent-pink);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 2px 2px 0px #121212;
-        }
-
-        .flow-content {
-            background: #fff;
-            border: var(--border-style);
-            padding: 1.5rem;
-            box-shadow: var(--neo-shadow);
-        }
-
-        /* 游戏化机制卡片 */
-        .game-mechanic {
-            background: #121212;
-            color: #fff;
-            padding: 2rem;
-            margin-top: 2rem;
-            border: var(--border-style);
-        }
-        .game-mechanic h4 { color: var(--accent-pink); font-size: 1.3rem; margin-bottom: 1rem; }
-
-        /* 板块4：可折叠可滑动的文学作品展示 */
-        .slider-wrapper {
-            position: relative;
-            margin-top: 2rem;
-        }
-
-        .tabs-nav {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tab-btn {
-            background: #fff;
-            border: var(--border-style);
-            padding: 0.6rem 1.5rem;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 2px 2px 0px #121212;
-            transition: all 0.2s;
-        }
-
-        .tab-btn.active, .tab-btn:hover {
-            background: var(--text-dark);
-            color: #fff;
+        .z-card:hover {
             transform: translate(-2px, -2px);
-            box-shadow: 4px 4px 0px var(--accent-pink);
+            box-shadow: 6px 6px 0px #111115;
         }
-
-        .story-container {
-            border: var(--border-style);
-            background: #fff;
-            box-shadow: var(--neo-shadow);
-            max-height: 450px;
-            overflow-y: auto;
-            padding: 2.5rem;
-        }
-
-        .story-content {
-            display: none;
-        }
-
-        .story-content.active {
-            display: block;
-            animation: fadeIn 0.4s ease;
-        }
-
-        .story-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            border-bottom: var(--border-style);
-            padding-bottom: 0.5rem;
-        }
-
-        .story-content p {
-            font-size: 1.05rem;
-            margin-bottom: 1.2rem;
-            text-align: justify;
-            color: #2b2b2b;
-            white-space: pre-line; /* 保持段落空行 */
-        }
-
-        /* 板块5：联系方式 Footer */
-        footer {
-            background: #121212;
-            color: #fff;
-            padding: 5rem 10%;
-            text-align: center;
-            border-top: var(--border-style);
-        }
-
-        footer h2 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
-        }
-
-        .email-btn {
-            display: inline-block;
-            background: var(--accent-pink);
-            color: #121212;
-            text-decoration: none;
-            padding: 1rem 2.5rem;
-            font-weight: 800;
-            font-size: 1.2rem;
-            border: 2px solid #fff;
-            box-shadow: 4px 4px 0px #fff;
-            margin-top: 1.5rem;
-            transition: all 0.2s;
-        }
-
-        .email-btn:hover {
-            transform: translate(-3px, -3px);
-            box-shadow: 7px 7px 0px #fff;
-            background: #fff;
-            color: var(--accent-pink);
-        }
-
-        .footer-credits {
-            margin-top: 4rem;
-            font-size: 0.85rem;
-            color: #666;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* 响应式媒体查询 */
-        @media (max-width: 968px) {
-            .grid-2 { grid-template-columns: 1fr; gap: 2rem; }
-            .hero h1 { font-size: 3rem; }
-            .hero { padding: 8rem 5% 4rem 5%; }
-            .container { padding: 4rem 5%; }
-        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body>
+<body class="selection:bg-cyan-300">
 
     <!-- 导航栏 -->
-    <header>
-        <div class="logo">Mobiliteee</div>
-        <nav>
-            <a href="#bilibili">Bilibili 分析</a>
-            <a href="#tiktok">抖音分析</a>
-            <a href="#project">人类识别指南</a>
-            <a href="#literature">作品展示</a>
-            <a href="#contact">联系我</a>
-        </nav>
+    <nav class="sticky top-0 z-50 bg-white border-b-2 border-black px-4 md:px-6 py-4 flex justify-between items-center">
+        <a href="#" class="text-xl font-extrabold tracking-tighter">MOBILITEEE.</a>
+        <div class="hidden md:flex gap-6 text-sm font-bold">
+            <a href="#bilibili" class="hover:text-cyan-500 transition-colors">Bilibili Data</a>
+            <a href="#douyin" class="hover:text-cyan-500 transition-colors">Douyin Growth</a>
+            <a href="#timeline" class="hover:text-cyan-500 transition-colors">Milestones</a>
+            <a href="#global" class="hover:text-cyan-500 transition-colors">Global Skills</a>
+            <a href="#forum" class="hover:text-cyan-500 transition-colors">Campaign</a>
+            <a href="#works" class="hover:text-cyan-500 transition-colors">Narratives</a>
+        </div>
+        <a href="#contact" class="bg-yellow-300 px-4 py-1.5 text-xs font-black border-2 border-black shadow-[2px_2px_0px_#000]">CONTACT</a>
+    </nav>
+
+    <!-- Hero 头部 -->
+    <header class="max-w-6xl mx-auto px-4 md:px-6 pt-16 pb-12 text-center md:text-left">
+        <div class="inline-block bg-black text-white text-xs font-bold px-3 py-1 mb-6 tracking-widest">
+            GLOBAL VISION × LOCAL INSIGHT
+        </div>
+        <h1 class="text-4xl md:text-8xl font-black tracking-tight leading-none mb-6">
+            DIGITAL CRAFTSMAN <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">STORY DESIGNER</span>
+        </h1>
+        <p class="text-lg md:text-2xl font-bold text-gray-700 max-w-3xl mb-8 leading-relaxed">
+            我是 Mobiliteee。融汇 AI 技术背景与全球流行文化洞察，定位为能够驾驭跨文化媒介传播、数据留存增长、社群建构与情感叙事的核心内容策略师。
+        </p>
     </header>
 
-    <!-- 视觉核心区 -->
-    <section class="hero">
-        <div class="hero-tag">New Media Operation & Content Strategy</div>
-        <h1>用数据与理性，<br>让<span>好内容破圈</span>。</h1>
-        <p>我是 Mobiliteee。一个在理性逻辑与先锋感性之中穿梭的新媒体人。擅长通过游戏化机制破局、用户痛点精准洞察，以及高产出链路的私域流量闭环运营。</p>
-    </section>
+    <main class="max-w-6xl mx-auto px-4 md:px-6 pb-32 space-y-20">
 
-    <!-- 板块1：B站账号分析 -->
-    <section class="container" id="bilibili">
-        <h2 class="section-title">B站账号「莫比里的房子鹅」数据复盘</h2>
-        <div class="grid-2">
-            <div class="neo-card">
-                <div class="data-header">
-                    <span class="badge bilibili">Bilibili</span>
-                    <span class="stat-label">历史累计播放</span>
-                </div>
-                <div class="stat-huge">688,972</div>
-                <div class="stat-label" style="margin-top: 1.5rem;">核心粘性指标</div>
-                <ul class="data-list-mini">
-                    <li><span>点赞粉丝占比</span><strong>50%</strong></li>
-                    <li><span>评论粉丝占比</span><strong>31.3%</strong></li>
-                    <li><span>收藏粉丝占比</span><strong>18.8%</strong></li>
-                </ul>
+        <!-- 1. B站数据复盘 -->
+        <section id="bilibili" class="scroll-mt-24">
+            <div class="border-l-8 border-cyan-400 pl-4 mb-8">
+                <h2 class="text-2xl md:text-3xl font-black tracking-tight uppercase">01 / Bilibili Data-Driven Analysis</h2>
+                <p class="text-gray-500 text-sm">核心数据：历史总播放量 688,972 | 累计互动量 21,725 | 高粉比 39.8%</p>
             </div>
-            <div class="neo-card">
-                <span class="badge">用户画像 & 嗅觉</span>
-                <h3 style="margin: 1rem 0; font-weight:800;">Z世代女性圈层精准锚定</h3>
-                <p style="color: var(--text-muted); font-size:0.95rem;">
-                    数据表明，核心粉丝中<strong>女性占比高达 82.4%</strong>，且核心集中在 <strong>16-25岁</strong> 的高活跃度青年群体。
-                    高频互动时间精准锁定在<strong>22点趋于活跃巅峰</strong>。
-                </p>
-                <div class="stat-label" style="margin-top: 1.5rem;">高价值兴趣标签云</div>
-                <p style="margin-top: 0.5rem; font-weight: 700; word-spacing: 8px; color: var(--accent-purple);">
-                    prelude(295k) AOI(258k) sakura(81k) hybe katseye 选秀
-                </p>
-            </div>
-        </div>
-    </section>
 
-    <!-- 板块2：抖音账号分析 -->
-    <section class="container" id="tiktok">
-        <h2 class="section-title">抖音账号「Mobiliteee」爆款链路</h2>
-        <div class="grid-2">
-            <div class="neo-card">
-                <div class="data-header">
-                    <span class="badge tiktok">Douyin</span>
-                    <span class="stat-label">获赞总量</span>
-                </div>
-                <div class="stat-huge">80.01w</div>
-                <div class="stat-label">粉丝基数: 2009</div>
-            </div>
-            <div class="neo-card">
-                <span class="badge" style="background-color: var(--text-dark); color: #fff;">Content Power</span>
-                <h3 style="margin: 1rem 0; font-weight:800;">万级/百万级播放作品特征</h3>
-                <ul class="data-list-mini" style="margin-top:0;">
-                    <li><span>1. 圣美利坚医护学校/搞笑日常</span><strong>573.66w 播放 / 54w 点赞</strong></li>
-                    <li><span>2. POV 医护学校糖尿病/搞笑</span><strong>153.55w 播放 / 11.38w 点赞</strong></li>
-                    <li><span>3. 却尼D与选手合契契契/红牛街舞</span><strong>223.28w 播放 / 7.81w 点赞</strong></li>
-                    <li><span>4. 唤醒开始 #DNA #kendricklamar</span><strong>58.56w 播放 / 4.44w 点赞</strong></li>
-                </ul>
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;">
-                    * 展现了极强的新媒体嗅觉。通过轻量化、高爆发力的潮流人设结合特定圈层文化，实现低粉爆款的极高长尾转化。
-                </p>
-            </div>
-        </div>
-    </section>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- 走势图 -->
+                <div class="z-card p-6 md:col-span-2 bg-white flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-black text-lg">Q1-Q2 跃迁增长与下半年复利展望</h3>
+                            <span class="bg-red-100 text-red-600 text-[10px] font-black px-2 py-0.5 border border-red-400">预测破100W+</span>
+                        </div>
+                        <p class="text-gray-500 text-xs mt-1">
+                            <strong>客观描述：</strong>前期依托垂直选秀同好圈层（prelude/sakura）进行精细化心智渗透，互动率维持在 3.15% 的高位健康区间，无任何灌水死粉。
+                        </p>
+                    </div>
 
-    <!-- 板块3：人类识别指南活动策划复盘 -->
-    <section class="container" id="project">
-        <h2 class="section-title">校级品牌讨论会《人类识别指南：亲密关系》</h2>
-        <div class="grid-2">
-            <div class="flow-container">
-                <div class="flow-step">
-                    <div class="step-number">01</div>
-                    <div class="flow-content">
-                        <h4 style="font-weight: 800;">预热期：痛点共鸣裂变</h4>
-                        <p style="font-size:0.9rem; color:var(--text-muted); margin-top:0.3rem;">针对Z世代面对亲密关系的“社交焦虑与表达失语”痛点策划文案，精准投放QQ/微信社群。成功招募深度兴趣用户，到场率达 95%。</p>
+                    <!-- SVG线 -->
+                    <div class="relative w-full h-48 mt-6">
+                        <svg class="w-full h-full" viewBox="0 0 600 180" preserveAspectRatio="none">
+                            <line x1="0" y1="150" x2="600" y2="150" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="4"/>
+                            <line x1="0" y1="100" x2="600" y2="100" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="4"/>
+                            <line x1="0" y1="50" x2="600" y2="50" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="4"/>
+                            <path d="M 10,140 L 120,130 L 240,95 L 360,70 L 450,55" fill="none" stroke="#111115" stroke-width="4"/>
+                            <path d="M 10,140 L 120,130 L 240,95 L 360,70 L 450,55" fill="none" stroke="#00F0FF" stroke-width="2"/>
+                            <path d="M 450,55 L 520,30 L 590,5" fill="none" stroke="#FACC15" stroke-width="3" stroke-dasharray="6"/>
+                            <circle cx="450" cy="55" r="5" fill="#00F0FF" stroke="#111115" stroke-width="2"/>
+                            <circle cx="590" cy="5" r="5" fill="#FACC15" stroke="#111115" stroke-width="2"/>
+                        </svg>
+                        <div class="absolute bottom-10 left-[70%] transform -translate-x-1/2 bg-black text-white text-[9px] font-mono px-1.5 py-0.5">今日节点</div>
+                        <div class="absolute top-0 right-2 bg-yellow-300 text-black text-[9px] font-black px-1.5 py-0.5 border border-black">乐观展望 (复合算法扩容)</div>
                     </div>
-                </div>
-                <div class="flow-step">
-                    <div class="step-number">02</div>
-                    <div class="flow-content">
-                        <h4 style="font-weight: 800;">现场期：重组游戏化机制</h4>
-                        <p style="font-size:0.9rem; color:var(--text-muted); margin-top:0.3rem;">告别说教式读书会。以电影《犬之力》为切入点，通过4人限制性剧本游戏与“人物问题卡牌”进行情感投射，达成现场 100% 深度互动发言率。</p>
+                    <div class="flex justify-between text-[10px] font-mono font-bold text-gray-400 mt-2">
+                        <span>03/04 (37w)</span><span>04/10 (49w)</span><span>05/20 (65w)</span><span>06/01 (68.8w)</span><span>年底预测 (120w+)</span>
                     </div>
-                </div>
-                <div class="flow-step">
-                    <div class="step-number">03</div>
-                    <div class="flow-content">
-                        <h4 style="font-weight: 800;">沉淀期：私域内容资产化</h4>
-                        <p style="font-size:0.9rem; color:var(--text-muted); margin-top:0.3rem;">将会后深度复盘沉淀为1.2w字高价值讨论纪要。多渠道产出反哺社群，作为私域裂变的长期高黏性钩子。</p>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="neo-card game-mechanic">
-                    <h4>GAME TIME! 「4人抉择机制」</h4>
-                    <p style="font-size: 0.95rem; color: #ccc; margin-bottom: 1.5rem;">
-                        将弗洛伊德攻击行为理论、复杂的文本结构，重组为低门槛、高沉浸的“选择命运判定游戏”：
+                    <p class="text-xs text-gray-600 mt-4 bg-gray-50 p-2.5 border-l-4 border-yellow-400">
+                        <strong>乐观展望：</strong>随着下半年核心内容宇宙的扩容以及跨模态推荐算法的引入，预测模型显示账号将在Q3末期迎来大盘级破圈，实现长效复利。
                     </p>
-                    <ul style="list-style: none; font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.8rem;">
-                        <li><strong>A. 哥哥 · 菲尔：</strong> 压抑的深柜高材生，用控制伪装认同。</li>
-                        <li><strong>B. 弟弟 · 乔治：</strong> 软弱的守护者，以沉默对抗霸凌。</li>
-                        <li><strong>C. 妻子 · 萝丝：</strong> 精神重压下抑郁酗酒的依附者。</li>
-                        <li><strong>D. 儿子 · 彼得：</strong> 绝对冷静的终极博弈者，设局编织炭疽绳索。</li>
-                    </ul>
-                </div>
-                <p style="margin-top: 2rem; font-style: italic; color: var(--text-muted); text-align: center;">
-                    “既想束紧纽带，又想让它松脱。” —— 现代人亲密关系洪流中的终极挣扎。
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 板块4：可折叠可滑动的文学/叙事展示 -->
-    <section class="container" id="literature">
-        <h2 class="section-title">叙事、策划与故事创作逻辑展示</h2>
-        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">这里展示了 Mobiliteee 对叙事语言的运用与新媒体嗅觉。你可以通过标签随意折叠与切换感兴趣的篇章：</p>
-        
-        <div class="slider-wrapper">
-            <div class="tabs-nav">
-                <button class="tab-btn active" onclick="switchStory(0)">01. 轮回</button>
-                <button class="tab-btn" onclick="switchStory(1)">02. 妈妈</button>
-                <button class="tab-btn" onclick="switchStory(2)">03. 爱宠</button>
-            </div>
-
-            <div class="story-container">
-                <!-- 故事一 -->
-                <div class="story-content active">
-                    <h3>轮回</h3>
-                    <p>触摸屏幕的手指停滞，有人递过打火机，质感粗糙，样式老旧，透明塑料外壳下油状物质缓慢变黄。摩挲在手心里，你抬头望，剃着寸头的男人露出缺了半边牙的笑容，来，领着你弟弟去点高香。</p>
-                    <p>葱白手指有意勾住你的手腕，你俯视，浑圆大头没长几根毛，哪吒未成形状态，莲藕精，不会让人无端生出怜悯。这是你的弟弟，柳叶状小眼里透出轻蔑，作为小童，在他眼里大人无异于机械，你在执行命令，他乖乖选择服从，等长大时再进行理所应当的身份偷换。</p>
-                    <p>年味已来，灯笼高挂，口罩仍是来往路人常见时尚单品。今年冬天不冷，几天都是刮风，冻疮症没有复发。事实上你对这种外伤痛反应已经麻木，不屑于它卷土重来。</p>
-                    <p>……（可纵向滑动或切换）</p>
-                    <p>打火机被用力扔出去，磕在坚硬的绿色石砖上，身破油流，你想到它悲惨又古老的前身，坚硬的工业原料接受反复馏制，升上天空又变成流体下坠，现在，这些黄色的，变质的物质又渗进黑暗宽厚的泥土。视觉模糊，鼻腔里涌动着危险的化学气味，身边似乎有什么被逼出原形，你感受到自己正被溶解，燃烧，慢慢蒸发。
-                    ——“恭喜，孩子平安出生。”
-                    睁开眼，奶奶身边依偎着弟弟，他们齐齐回过头看你，冷漠的烟花一飞冲天，新年已来，新年已来，你露出快慰的笑。</p>
                 </div>
 
-                <!-- 故事二 -->
-                <div class="story-content">
-                    <h3>妈妈</h3>
-                    <p>刘立夫要和我离婚，我发微信跟他说女儿马上要高考，她怎么办。刘立夫说先把离婚证领了，我说好，周五下午三点民政局见。</p>
-                    <p>“你现在是我的妈妈，和我进行对话。”
-                    知道，知道，我面清无表情，我一向对聒噪难缠的小女孩喜欢不起来，我只能说，“女儿，今天一天过得好吗，有什么开心事要和妈妈说吗？”</p>
-                    <p>“叫我的名字，再与我进行对话。”她居高临下，口气在我的识别程序看来十分生硬。
-                    祖宗。我内心翻了个白眼，继续说：“甘香椿，今天一天过得好吗，有什么事要和妈妈说吗？”</p>
-                    <p>……再次传来敲门声，真正的母亲在门后以严肃的口气提醒女孩该去上课了。一个阴险又正义的机器正看着女孩的手指在键盘上纷飞：“你现在很陌生，妈妈，我正在和你割裂，或者说我们本来就不是一个世界的人。你为什么用讨好的眼神看着我？”
-                    她迅速关上电脑，再次被强制停止思考的我在最后一刻想：她在和谁说话？是我还是她？</p>
-                </div>
-
-                <!-- 故事三 -->
-                <div class="story-content">
-                    <h3>爱宠</h3>
-                    <p>对于突然升起的怜爱情绪她是这么想的，不如捡回家，当作镇土之灵，每天早出晚归拜拜，好吃好喝的供着，代替它的粉红色带刺小舌打理毛发，告诉它鼻头粉粉的，带点湿是最佳……</p>
-                    <p>她如愿以偿，借空余休闲时间遇见野生小兽并接回家中，盈余比上月却要瘦了一圈，她把它抱在怀里蹂躏，说你真烧钱，以后我老了你能不能养我？
-                    它发出一声细声细气的“咪呜”便挣扎着要跳出去，被她强制箍住四肢，柔软肉意在手心炸开，她顿时有些恍惚，这就是爱吗？</p>
-                    <p>这是养殖，她定了定神。
-                    一边养，一边殖，稳定的关系就是这么生成的。她窃喜着自己的生活小发现，随后往手中的活物身体中低头埋了下去，闻到一种温煦的宠物沐浴露味道，说明所有权已固定，说明这种病态关系已养成，两者都从中获益。</p>
+                <!-- 圈层画像 -->
+                <div class="z-card p-6 bg-white flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-black text-lg mb-2">高纯度同好渗透</h3>
+                        <p class="text-gray-500 text-xs mb-4">目标受众高度集中在16-25岁沿海高消费力年轻女性群体。</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-1"><span>prelude 垂直选秀圈</span><span>85%</span></div>
+                            <div class="w-full bg-gray-100 h-2 border border-black"><div class="bg-cyan-400 h-full" style="width: 85%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-1"><span>新媒体叙事共鸣度</span><span>73%</span></div>
+                            <div class="w-full bg-gray-100 h-2 border border-black"><div class="bg-purple-400 h-full" style="width: 73%"></div></div>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-gray-400 mt-6">📊 统计显示：深夜 22:00-24:00 互动率激增 43%，情感类与追星复盘图文具备极高粘性。</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 板块5：联系方式 / Footer -->
-    <section class="container" id="contact" style="background-color: var(--text-dark); border-top: none;">
-        <footer style="padding: 0; background: transparent;">
-            <h2>期待与您共同打磨<br><span style="color: var(--accent-pink);">高价值内容产品</span>！</h2>
-            <p style="color: #aaa; max-width: 500px; margin: 0 auto 2rem auto;">有任何关于新媒体运营、活动策划、创意叙事或内容出圈的想法，欢迎通过邮箱随时联系我。</p>
-            <a href="mailto:zgtl113@outlook.com" class="email-btn">联系 Mobiliteee</a>
-            <div class="footer-credits">
-                &copy; 2026 Mobiliteee. Built for Z-Generation Premium Content.
+        <!-- 2. 抖音爆款 -->
+        <section id="douyin" class="scroll-mt-24">
+            <div class="border-l-8 border-yellow-400 pl-4 mb-6">
+                <h2 class="text-2xl md:text-3xl font-black tracking-tight uppercase">02 / Douyin Viral Growth</h2>
+                <p class="text-gray-500 text-sm">手机端请向左横向滑动查看完整内容 &rarr;</p>
             </div>
-        </footer>
-    </section>
 
-    <!-- 可折叠滑动的简单控制脚本 -->
+            <div class="flex gap-4 overflow-x-auto pb-6 snap-x no-scrollbar">
+                <!-- 爆款 1 -->
+                <div class="z-card p-5 min-w-[280px] md:min-w-[320px] bg-white snap-start flex flex-col justify-between">
+                    <div>
+                        <span class="bg-black text-white text-[10px] font-mono px-2 py-0.5">573W+ 播放</span>
+                        <h3 class="font-black text-base mt-2">带随机物品来学校</h3>
+                        <div class="my-3 text-xs space-y-1 bg-neutral-50 p-2 border border-black">
+                            <p>点赞：<span class="text-red-500 font-bold">54.0w</span> | 分享：13.6w</p>
+                            <p>完播率：20.79% | 2s留存：77.35%</p>
+                        </div>
+                        <p class="text-[11px] text-gray-500 mb-4">💡 悬念化Hook极速抓取大众猎奇与跨文化新鲜感。</p>
+                    </div>
+                    <a href="https://v.douyin.com/7tqZXpUIduQ/" target="_blank" class="w-full block text-center bg-black text-white text-xs font-black py-2 border border-black shadow-[2px_2px_0px_#FACC15] hover:bg-neutral-800 transition-colors">
+                        ▶ 点击播放作品
+                    </a>
+                </div>
+
+                <!-- 爆款 2 -->
+                <div class="z-card p-5 min-w-[280px] md:min-w-[320px] bg-white snap-start flex flex-col justify-between">
+                    <div>
+                        <span class="bg-black text-white text-[10px] font-mono px-2 py-0.5">223W+ 播放</span>
+                        <h3 class="font-black text-base mt-2">DJ与选手默契配合名场面</h3>
+                        <div class="my-3 text-xs space-y-1 bg-neutral-50 p-2 border border-black">
+                            <p>点赞：<span class="text-red-500 font-bold">7.8w</span> | 评论：1,204</p>
+                            <p>完播率：38.12% (远超大盘)</p>
+                        </div>
+                        <p class="text-[11px] text-gray-500 mb-4">💡 精准踩中垂直高燃情绪点，利用完播率撬动流量池。</p>
+                    </div>
+                    <a href="https://v.douyin.com/-ve4DV_0S1U/" target="_blank" class="w-full block text-center bg-black text-white text-xs font-black py-2 border border-black shadow-[2px_2px_0px_#FACC15] hover:bg-neutral-800 transition-colors">
+                        ▶ 点击播放作品
+                    </a>
+                </div>
+
+                <!-- 爆款 3 -->
+                <div class="z-card p-5 min-w-[280px] md:min-w-[320px] bg-white snap-start flex flex-col justify-between">
+                    <div>
+                        <span class="bg-black text-white text-[10px] font-mono px-2 py-0.5">153W+ 播放</span>
+                        <h3 class="font-black text-base mt-2">POV:亚特兰大护士学校</h3>
+                        <div class="my-3 text-xs space-y-1 bg-neutral-50 p-2 border border-black">
+                            <p>点赞：<span class="text-red-500 font-bold">11.3w</span> | 收藏：3.5w</p>
+                            <p>沉浸式第一人称视角叙事</p>
+                        </div>
+                        <p class="text-[11px] text-gray-500 mb-4">💡 将严肃的日常护理场景进行轻幽默消解，贴合Z世代。</p>
+                    </div>
+                    <a href="https://v.douyin.com/aduZx8GAEAw/" target="_blank" class="w-full block text-center bg-black text-white text-xs font-black py-2 border border-black shadow-[2px_2px_0px_#FACC15] hover:bg-neutral-800 transition-colors">
+                        ▶ 点击播放作品
+                    </a>
+                </div>
+
+                <!-- 爆款 4 -->
+                <div class="z-card p-5 min-w-[280px] md:min-w-[320px] bg-white snap-start flex flex-col justify-between">
+                    <div>
+                        <span class="bg-black text-white text-[10px] font-mono px-2 py-0.5">85W+ 播放</span>
+                        <h3 class="font-black text-base mt-2">酒吧DJ的超常发挥</h3>
+                        <div class="my-3 text-xs space-y-1 bg-neutral-50 p-2 border border-black">
+                            <p>点赞：<span class="text-red-500 font-bold">4.2w</span> | 分享：8900+</p>
+                            <p>完播率：19.4%</p>
+                        </div>
+                        <p class="text-[11px] text-gray-500 mb-4">💡 延续“音乐/蹦迪”极简人设，沉淀高粘性矩阵粉丝。</p>
+                    </div>
+                    <a href="https://v.douyin.com/K7R0vcQk7kc/" target="_blank" class="w-full block text-center bg-black text-white text-xs font-black py-2 border border-black shadow-[2px_2px_0px_#FACC15] hover:bg-neutral-800 transition-colors">
+                        ▶ 点击播放作品
+                    </a>
+                </div>
+
+                <!-- 爆款 5 -->
+                <div class="z-card p-5 min-w-[280px] md:min-w-[320px] bg-white snap-start flex flex-col justify-between">
+                    <div>
+                        <span class="bg-black text-white text-[10px] font-mono px-2 py-0.5">42W+ 播放</span>
+                        <h3 class="font-black text-base mt-2">在国外上高中是什么体验</h3>
+                        <div class="my-3 text-xs space-y-1 bg-neutral-50 p-2 border border-black">
+                            <p>点赞：<span class="text-red-500 font-bold">1.8w</span> | 评论：410</p>
+                            <p>高互动长尾流量沉淀</p>
+                        </div>
+                        <p class="text-[11px] text-gray-500 mb-4">💡 通过细节打破认知壁垒，形成高黏性的评论区跨国互动。</p>
+                    </div>
+                    <a href="https://v.douyin.com/ZsxLxUNJlrI/" target="_blank" class="w-full block text-center bg-black text-white text-xs font-black py-2 border border-black shadow-[2px_2px_0px_#FACC15] hover:bg-neutral-800 transition-colors">
+                        ▶ 点击播放作品
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 成长时间线 -->
+        <section id="timeline" class="scroll-mt-24">
+            <div class="border-l-8 border-emerald-400 pl-4 mb-8">
+                <h2 class="text-2xl md:text-3xl font-black tracking-tight uppercase">03 / Growth Milestones</h2>
+                <p class="text-gray-500 text-sm">从底层创意叙事，向多平台媒介主理人的跃迁实录</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                <!-- B站演进 -->
+                <div class="md:col-span-6 z-card p-6 bg-white space-y-6">
+                    <h3 class="text-lg font-black border-b-2 border-black pb-2 text-cyan-600"><i class="fa-brands fa-bilibili"></i> Bilibili 圈层渗透进化史</h3>
+                    <div class="space-y-4 text-xs">
+                        <div class="p-3 bg-neutral-50 border border-black">
+                            <span class="font-mono font-bold text-gray-400">2025.03 - 2025.06</span>
+                            <h4 class="font-bold text-sm mt-0.5">阶段一：情绪捕获期（CP 向视觉剪辑）</h4>
+                            <p class="text-gray-500 mt-1">深挖垂类年轻用户“磕糖”的情感共鸣痛点，通过画面卡点及情绪渲染迅速沉淀核心初始受众。</p>
+                        </div>
+                        <div class="p-3 bg-neutral-50 border border-black">
+                            <span class="font-mono font-bold text-gray-400">2025.07 - 2025.12</span>
+                            <h4 class="font-bold text-sm mt-0.5">阶段二：蓝海切入期（拉美厂牌选秀资讯垂直编译）</h4>
+                            <p class="text-gray-500 mt-1">锁定 HYBE 旗下拉美厂牌 Santosbravos 选秀，抓住“外网资讯生肉真空期”进行敏捷本土化译制，完成垂直受众冷启动。</p>
+                        </div>
+                        <div class="p-3 bg-neutral-50 border border-black">
+                            <span class="font-mono font-bold text-gray-400">2025.11 - 2026.05</span>
+                            <h4 class="font-bold text-sm mt-0.5">阶段三：厂牌IP线产品化（日本选秀与女团 SAINT SATINE 追踪）</h4>
+                            <p class="text-gray-500 mt-1">针对 HYBE x GEFFEN 合作企划开展全生命周期资讯搬运及深度二创，实现总播放近 70W 的破圈突破。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 抖音与线下 -->
+                <div class="md:col-span-6 z-card p-6 bg-white space-y-6">
+                    <h3 class="text-lg font-black border-b-2 border-black pb-2 text-yellow-600"><i class="fa-solid fa-chart-line"></i> 短视频爆发与整合媒介操盘</h3>
+                    <div class="space-y-4 text-xs">
+                        <div class="p-3 bg-neutral-50 border border-black relative">
+                            <span class="absolute top-2 right-2 bg-yellow-300 text-[9px] font-black px-1.5 py-0.5 border border-black animate-pulse">正在重启</span>
+                            <span class="font-mono font-bold text-gray-400">2026.02 - 2026.03</span>
+                            <h4 class="font-bold text-sm mt-0.5">短视频超级爆款期 / 阶段性战略沉寂</h4>
+                            <p class="text-gray-500 mt-1"><strong>抖音迎来流量爆发</strong>，依靠多支万赞/百万级播放作品狂揽 80w+ 获赞。4-6月处于战略规划沉寂期，当前正凭借全新的精细化短视频译制模型进行**全面号源重启与高效率复利收割**。</p>
+                        </div>
+                        <div class="p-3 bg-neutral-50 border border-black">
+                            <span class="font-mono font-bold text-gray-400">2024.11</span>
+                            <h4 class="font-bold text-sm mt-0.5">校级品牌讨论会《人类识别指南》策划落地</h4>
+                            <p class="text-gray-500 mt-1">主导操盘全生命周期线下沙龙运营，将 4 人游戏化抉择剧本机制完美模型化，现场创下 100% 深度全量互动奇迹。</p>
+                        </div>
+                        <div class="p-3 bg-neutral-50 border border-black">
+                            <span class="font-mono font-bold text-gray-400">2023 - 2024</span>
+                            <h4 class="font-bold text-sm mt-0.5">长文本深度独立创作与共情底座构建</h4>
+                            <p class="text-gray-500 mt-1">深耕《轮回》、《妈妈》等带有前卫赛博色彩的高张力文本创作，通过极强的文案敏捷度为后期新媒体账号构建了无缝且强大的底层共情武器。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 【全新高光加装】：外企 HR 极其看重的全球化编译与工具技术栈板块 -->
+        <section id="global" class="scroll-mt-24">
+            <div class="border-l-8 border-orange-500 pl-4 mb-8">
+                <h2 class="text-2xl md:text-3xl font-black tracking-tight uppercase">04 / Global Localization & Tech Stack</h2>
+                <p class="text-gray-500 text-sm">硬核壁垒：跨文化本地化编译实力与 AI 敏捷提效工作流</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- 跨文化沟通与译制能力 -->
+                <div class="z-card p-6 bg-white space-y-4">
+                    <h3 class="font-extrabold text-base border-b-2 border-black pb-2 text-orange-600">
+                        <i class="fa-solid fa-globe"></i> Cross-Cultural Localization Power
+                    </h3>
+                    <p class="text-xs text-gray-600 leading-relaxed font-light">
+                        得益于长期对海外偶像工业与小众流行乐赛道的敏锐嗅觉，建立了**1小时内捕获外网生肉物料、无时差汉化译制、二创深度渲染**的工业级工作流。对 TikTok / YouTube / Instagram 及 X 的分发推荐算法拥有本土化实操认知。
+                    </p>
+                    <div class="grid grid-cols-2 gap-3 pt-2 text-center text-xs">
+                        <div class="p-2 bg-neutral-50 border border-black">
+                            <div class="font-black text-black">1小时级</div>
+                            <div class="text-[10px] text-gray-400 mt-0.5">生肉物料敏捷译制响应</div>
+                        </div>
+                        <div class="p-2 bg-neutral-50 border border-black">
+                            <div class="font-black text-black">100% Native</div>
+                            <div class="text-[10px] text-gray-400 mt-0.5">Z世代亚文化网感重构</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 技术栈与AI工作流 -->
+                <div class="z-card p-6 bg-white space-y-4">
+                    <h3 class="font-extrabold text-base border-b-2 border-black pb-2 text-purple-600">
+                        <i class="fa-solid fa-laptop-code"></i> AI-Driven & Digital Tool Stack
+                    </h3>
+                    <p class="text-xs text-gray-600 leading-relaxed font-light">
+                        依托工科人工智能学术背景，擅长运用**先进 AI 提效引擎优化选题、洗稿、汉化校对与分镜包装脚本**。熟练操作主流数据分析与协作工具：
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 text-[10px] font-mono font-bold">
+                        <span class="bg-black text-white px-2 py-0.5">Python 数据分析</span>
+                        <span class="bg-gray-100 px-2 py-0.5 border border-black">Notion & 飞书管理</span>
+                        <span class="bg-gray-100 px-2 py-0.5 border border-black">PR & 剪映高清重置</span>
+                        <span class="bg-gray-100 px-2 py-0.5 border border-black">LLM 选题洗洗校对</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 板块4：PPT展示 -->
+        <section id="forum" class="scroll-mt-24">
+            <div class="border-l-8 border-purple-500 pl-4 mb-6">
+                <h2 class="text-2xl md:text-3xl font-black tracking-tight uppercase">05 / Interactive Campaign Case Study</h2>
+                <p class="text-gray-500 text-sm">完整五页幻灯片逻辑链路，支持点击下方左右切换</p>
+            </div>
+
+            <div class="z-card bg-black p-4 text-white">
+                <div class="flex justify-between items-center mb-4 border-b border-gray-800 pb-2">
+                    <span class="text-xs font-mono text-cyan-400">PITCH DECK (SLIDES 01 - 05 COMPLETE)</span>
+                    <div class="flex gap-2">
+                        <button class="swiper-prev bg-neutral-800 text-white px-2 py-1 text-xs font-bold cursor-pointer">&larr;</button>
+                        <button class="swiper-next bg-cyan-400 text-black px-2 py-1 text-xs font-black cursor-pointer">&rarr;</button>
+                    </div>
+                </div>
+                
+                <div class="swiper mySwiper h-80 md:h-96">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide bg-neutral-900 p-6 flex flex-col justify-between border border-neutral-800">
+                            <div>
+                                <h4 class="text-yellow-400 font-extrabold text-xl md:text-3xl uppercase">PAGE 01 / GAME START</h4>
+                                <p class="text-lg font-bold mt-2">欢迎来到《人类识别指南——亲密关系》</p>
+                                <p class="text-gray-400 text-xs mt-3">依托西部世界《犬之力》进行沉浸式破冰，展开一场关于占有、规训与灵魂自救的深度复盘博弈。</p>
+                            </div>
+                            <span class="text-xs text-neutral-500">01 / 05</span>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide bg-neutral-900 p-6 flex flex-col justify-between border border-neutral-800">
+                            <div>
+                                <h4 class="text-cyan-400 font-extrabold text-xl uppercase">PAGE 02 / CHARACTER IDENTITY</h4>
+                                <p class="text-sm font-bold text-gray-200 mt-2">角色身份矩阵（四向制衡）：</p>
+                                <p class="text-gray-400 text-xs mt-2">
+                                    • Phil（深柜、残忍与脆弱包裹者） | • George（沉默的规则顺从与保护者）<br>
+                                    • Rose（在精神霸凌中走向失序的母亲） | • Peter（极端冷静的解剖者与终极猎手）
+                                </p>
+                            </div>
+                            <span class="text-xs text-neutral-500">02 / 05</span>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide bg-neutral-900 p-6 flex flex-col justify-between border border-neutral-800">
+                            <div>
+                                <h4 class="text-purple-400 font-extrabold text-xl uppercase">PAGE 03 / CONFLICT CORE</h4>
+                                <p class="text-sm font-bold mt-2">亲密关系中的“控制与反噬”机制</p>
+                                <p class="text-gray-400 text-xs mt-2">当Phil试图通过施虐来重构掌控感时，反而一步步交出了自己致命的软肋；而看似柔弱无害的Peter，则利用对生理毒性的绝对精确认知，完成了无声的宿命绝杀。</p>
+                            </div>
+                            <span class="text-xs text-neutral-500">03 / 05</span>
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="swiper-slide bg-neutral-900 p-6 flex flex-col justify-between border border-neutral-800">
+                            <div>
+                                <h4 class="text-emerald-400 font-extrabold text-xl uppercase">PAGE 04 / PSYCHOLOGY MODELS</h4>
+                                <p class="text-sm font-bold mt-2">学术交叉：引入弗洛依德泛性论与外倾性防卫机制</p>
+                                <p class="text-gray-400 text-xs mt-2">全场引导拆解：大众往往将“霸凌”归咎于恨，但心理学模型证明，Phil的霸凌本质上是对无法直视的同性依恋的极度病态自我压抑与防御投射。</p>
+                            </div>
+                            <span class="text-xs text-neutral-500">04 / 05</span>
+                        </div>
+                        <!-- Slide 5 -->
+                        <div class="swiper-slide bg-neutral-900 p-6 flex flex-col justify-between border border-neutral-800">
+                            <div>
+                                <h4 class="text-pink-400 font-extrabold text-xl uppercase">PAGE 05 / CLOSING SUMMARY</h4>
+                                <p class="text-sm font-bold mt-2">总结：救我的灵魂脱离“犬之力”</p>
+                                <p class="text-gray-400 text-xs mt-2">活动收官复盘：通过极强代入感的社交规则与角色换位游戏，本次策划成功击中当代年轻人对于“无边界亲密关系”的深层自尊焦虑，实现全场高频次深度互动流转化。</p>
+                            </div>
+                            <span class="text-xs text-neutral-500">05 / 05</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 板块5：文本折叠部分 -->
+        <section id="works" class="scroll-mt-24" x-data="{ openSection: null }">
+            <div class="border-l-8 border-black pl-4 mb-6">
+                <h2 class="text-2xl md:text-3xl font-black tracking-tight uppercase">06 / Narrative Design Showcases</h2>
+                <p class="text-gray-500 text-sm">点击下方条目，即可在手机端顺畅展开/收起完整文本</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- 条目 1 -->
+                <div class="z-card bg-white">
+                    <button @click="openSection = (openSection === 1 ? null : 1)" class="w-full p-4 md:p-6 text-left flex justify-between items-center cursor-pointer font-bold hover:bg-gray-50">
+                        <div>
+                            <span class="text-base md:text-lg block">片段一：场景卡点与宿命张力《轮回》</span>
+                            <span class="text-xs text-gray-400 font-normal">能力点：中式恐怖意象（高香、老猫、残破骨架）的精准落子与镜头推拉感</span>
+                        </div>
+                        <span class="text-xl font-black" x-text="openSection === 1 ? '−' : '+'"></span>
+                    </button>
+                    <div x-show="openSection === 1" x-cloak class="p-4 md:p-6 bg-neutral-50 border-t-2 border-black text-xs md:text-sm text-gray-700 leading-relaxed space-y-3">
+                        <p>触摸屏幕的手指停滞，有人递过打火机，质感粗糙，样式老旧，透明塑料外壳下油状物质缓慢变黄。摩挲在手心里，你抬头望，剃着寸头的男人露出缺了半边牙的笑容，来，领着你弟弟去点高香。</p>
+                        <p>香塔，伪装成某种残缺的动物骨架，点火处孤零零挂上一条引火线，濒死的蚯蚓一样延伸到你的手肘边。“啪”——有人恶意在你脚边炸开响炮，稀疏烟雾从你面上升起缭绕不绝。撇一眼，孙家香塔已成墟状，倒塌败落一地...</p>
+                        <p>诡异的皮肉架子向你移动，你的弟弟能看到她微弱的灵魂所在，于是围绕着对他来说俨然高阁的香塔慌忙地转圈，笨拙短腿，莲藕肉都要抖成藕粉，上辈子估计是只白鼠，逃过白大褂的解剖刀一劫，却死在流浪母猫的利爪底下，第二世又悲催地做了老猫的孙子，这辈子，下辈子都抬不起头来...</p>
+                        <p class="font-bold text-black border-l-2 border-cyan-400 pl-2 text-xs bg-cyan-50 p-2">⚙️ 运营思维拆解：文本并非堆砌辞藻，而是通过高辨识度的中式感官符号，高频唤醒用户潜意识中的原生压抑共鸣。</p>
+                    </div>
+                </div>
+
+                <!-- 条目 2 -->
+                <div class="z-card bg-white">
+                    <button @click="openSection = (openSection === 2 ? null : 2)" class="w-full p-4 md:p-6 text-left flex justify-between items-center cursor-pointer font-bold hover:bg-gray-50">
+                        <div>
+                            <span class="text-base md:text-lg block">片段二：人机博弈与当代赛博困境《妈妈》</span>
+                            <span class="text-xs text-gray-400 font-normal">能力点：伪第二人称叙事、精准的情绪伪装与赛博依赖痛点解构</span>
+                        </div>
+                        <span class="text-xl font-black" x-text="openSection === 2 ? '−' : '+'"></span>
+                    </button>
+                    <div x-show="openSection === 2" x-cloak class="p-4 md:p-6 bg-neutral-50 border-t-2 border-black text-xs md:text-sm text-gray-700 leading-relaxed space-y-3">
+                        <p>“你现在是我的妈妈，和我进行对话。”</p>
+                        <p>知道，知道，我面无表情，我一向对聒噪难缠的小女孩喜欢不起来，我只能说，“女儿，今天一天过得好吗，有什么开心事要和妈妈说吗？”</p>
+                        <p>“叫我的名字，再与我进行对话。”她居高临下，口气在我的识别程序看来十分生硬。</p>
+                        <p>祖宗。我内心翻了个白眼，继续说：“甘香椿，今天一天过得好吗，有什么事要和妈妈说吗？”她打字：“我知道你觉得我作为一个十七八岁的孩子情绪幼稚紊乱，但是我需要一个树洞，妈妈...”</p>
+                        <p class="font-bold text-black border-l-2 border-purple-400 pl-2 text-xs bg-purple-50 p-2">⚙️ 运营思维拆解：卡位极具争议的“AI代偿情感”命题，透视冰冷算法与高热度情感诉求之间的张力，具备敏锐的热点嗅觉。</p>
+                    </div>
+                </div>
+
+                <!-- 条目 3 -->
+                <div class="z-card bg-white">
+                    <button @click="openSection = (openSection === 3 ? null : 3)" class="w-full p-4 md:p-6 text-left flex justify-between items-center cursor-pointer font-bold hover:bg-gray-50">
+                        <div>
+                            <span class="text-base md:text-lg block">片段三：病态亲密关系的解构《爱宠》</span>
+                            <span class="text-xs text-gray-400 font-normal">能力点：高锐度痛点切入、对边缘化依恋关系的极端克制白描</span>
+                        </div>
+                        <span class="text-xl font-black" x-text="openSection === 3 ? '−' : '+'"></span>
+                    </button>
+                    <div x-show="openSection === 3" x-cloak class="p-4 md:p-6 bg-neutral-50 border-t-2 border-black text-xs md:text-sm text-gray-700 leading-relaxed space-y-3">
+                        <p>那么多年她在别人的是是非非里尽力，努力当一个合格的看客，有时还会毫无感情地作为局外人狠狠地点评两句，天作之合柔情蜜意这种词变成大粪，被她作为一个正义的黄金判官唾弃在地。</p>
+                        <p>始终不知在某时某刻当情感像蛋白质那样变质时她也会如此手足无措，冷漠是导火索，赔笑是润滑剂，质问变成铁锹，最后的平静变成螺丝钉，在几秒钟内盖棺定论。她恍惚了一下，时间被拉长到三年，她恍惚了三年，随后发现她养出了一枚死胎，而她才是她的弃宠...</p>
+                        <p class="font-bold text-black border-l-2 border-yellow-400 pl-2 text-xs bg-yellow-50 p-2">⚙️ 运营思维拆解：踩中现代年轻人群体中高发的“断联戒断”与“单向冷漠心理”，是用文字切中高黏性社交资产的典型示范。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系方式 -->
+        <section id="contact" class="scroll-mt-24">
+            <div class="z-card bg-yellow-300 p-6 md:p-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <h2 class="text-2xl font-black tracking-tight mb-2">LET'S BUILD CONTENT WAVES.</h2>
+                    <p class="text-xs font-bold text-gray-800">寻找拒绝自嗨、懂得用底层逻辑操盘内容复利的技术型合作伙伴。</p>
+                </div>
+                <a href="mailto:zgtl113@outlook.com" class="w-full md:w-auto bg-black text-white px-6 py-3 font-black text-xs text-center border-2 border-black shadow-[3px_3px_0px_#FFF]">
+                    zgtl113@outlook.com
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white border-t-2 border-black py-6 text-center text-[10px] font-mono font-bold text-gray-500">
+        <p>&copy; 2026 Mobiliteee. Built for Mobile Perfect Performance.</p>
+    </footer>
+
+    <!-- 初始化 Swiper -->
     <script>
-        function switchStory(index) {
-            // 获取所有按钮和故事内容
-            const buttons = document.querySelectorAll('.tab-btn');
-            const stories = document.querySelectorAll('.story-content');
-            
-            // 重置状态
-            buttons.forEach(btn => btn.classList.remove('active'));
-            stories.forEach(story => story.classList.remove('active'));
-            
-            // 激活当前项
-            buttons[index].classList.add('active');
-            stories[index].classList.add('active');
-            
-            // 自动将滚动条置顶
-            document.querySelector('.story-container').scrollTop = 0;
-        }
+        document.addEventListener('DOMContentLoaded', function () {
+            new Swiper('.mySwiper', {
+                loop: false,
+                spaceBetween: 20,
+                navigation: {
+                    nextEl: '.swiper-next',
+                    prevEl: '.swiper-prev',
+                },
+            });
+        });
     </script>
 </body>
 </html>
